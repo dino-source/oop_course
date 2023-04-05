@@ -8,5 +8,8 @@ class Employee:
     def print(self):
         print(f"{self.name} ({self.age}): {self.position} [$", "%.2f" % self.salary, "]", sep='')
 
+    def __str__(self) -> str:
+        return f"{self.name} ({self.age}): {self.position} [$" + "%.2f" % self.salary + "]"
+
     def increase_salary(self, percent):
         self.salary += self.salary * (percent/100)
