@@ -16,8 +16,10 @@ print(eval(repr(e1)))
 employees = e1 + e2
 print(employees)
 
-# e2.set_salary(900)
-e2.set_salary(1400)
-print(e2.name, " has $", e2.get_salary(), " monthly salary.", sep='')
+# e1.salary = 990
+e2.salary = 1400
+print(e2.name, " has $", e2.salary, " monthly salary.", sep='')
 
-print(e2.__salary)
+# print(e2.__salary)
+
+print(e2.salary)

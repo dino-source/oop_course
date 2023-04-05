@@ -20,10 +20,12 @@ class Employee:
     def __add__(self, other):
         return [self, other]
     
-    def get_salary(self) -> float:
+    @property
+    def salary(self):
         return self.__salary
     
-    def set_salary(self, new_salary):
+    @salary.setter
+    def salary(self, new_salary):
         minimum_wage = 1000
         if new_salary < minimum_wage:
             raise ValueError("Minimum wage is $1000")
