@@ -10,4 +10,8 @@ e2 = Employee.Employee("Jane Croft", 44, "tester", 1000.0)
 e2.increase_salary(30)
 #print(e2)
 
+print(e1)
 print(eval(repr(e1)))
+
+e3 = e1 + e2
+print(e3)

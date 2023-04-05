@@ -16,6 +16,9 @@ class Employee:
             '\"' + str(self.position) + '\"' + ', ' +
             str(self.salary) + ')'
         )
+    
+    def __add__(self, other):
+        return [self, other]
 
     def print(self):
         print(f"{self.name} ({self.age}): {self.position} [$", "%.2f" % self.salary, "]", sep='')
