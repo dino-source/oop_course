@@ -15,7 +15,13 @@ employee2 = {
 def increase_salary(employee, percent):
     employee["salary"] += employee["salary"] + (percent/100)
 
+def employee_info(employee):
+    print(
+        f"{employee['name']} is {employee['age']} years old. " +
+        f"The employee is a {employee['position']} with " +
+        f"salary of ${employee['salary']}")
+
 employees = [employee1, employee2]
 
-for emp in employees:
-    print(f"{emp['name']}'s salary is ${emp['salary']}")
+for employee in employees:
+    employee_info(employee)
