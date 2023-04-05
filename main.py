@@ -22,4 +22,4 @@ print(e2.name, " has $", e2.salary, " monthly salary.", sep='')
 
 # print(e2.__salary)
 
-print(e2.salary)
+print(e2.name, " has $", e2.annual_salary, " annual salary.", sep='')

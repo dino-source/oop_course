@@ -32,6 +32,10 @@ class Employee:
         else:
             self.__salary = new_salary
 
+    @property
+    def annual_salary(self):
+        return self.salary * 12
+
     def print(self):
         print(f"{self.name} ({self.age}): {self.position} [$", "%.2f" % self.__salary, "]", sep='')
 
