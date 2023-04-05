@@ -6,4 +6,7 @@ class Employee:
         self.salary = salary
 
     def print(self):
-        print(f"{self.name} ({self.age}): {self.position} [{self.salary}]")
+        print(f"{self.name} ({self.age}): {self.position} [$", "%.2f" % self.salary, "]", sep='')
+
+    def increase_salary(self, percent):
+        self.salary += self.salary * (percent/100)
