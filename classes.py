@@ -11,6 +11,15 @@ employee2 = {
     "position" : "tester",
     "salary" : 1000.0,
 }
+def init_employee(name, age, position, salary):
+    return {
+        "name" : name,
+        "age" : age,
+        "position" : position,
+        "salary" : salary,
+    }
+
+employee3 = init_employee("Mateo", 38, "developer", 2000)
 
 def increase_salary(employee, percent):
     employee["salary"] += employee["salary"] * (percent/100)
