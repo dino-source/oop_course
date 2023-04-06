@@ -7,6 +7,9 @@ class Employee:
     def increase_salary(self, percent):
         self.salary += self.salary * (percent/100)
 
+    def __str__(self) -> str:
+        return f"{self.name} ({self.age}): monthly salary $" + "%.2f" % self.salary
+
     @property
     def salary(self) -> float:
         return self.__salary
@@ -21,3 +24,8 @@ class Employee:
 
 
 print(Employee.__dict__)
+
+e = Employee("John Smith", 38, 1000.00)
+print("Before:", e)
+Employee.__dict__["increase_salary"](e, 20)
+print("After:", e)
