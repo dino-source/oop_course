@@ -1,16 +1,32 @@
 class Employee:
     __minimum_wage = 1000
+    __maximum_wage = 10000
+
+    @classmethod
+    def change_the_minimum_wage(cls, new_wage):
+        if new_wage > Employee.__maximum_wage:
+            raise ValueError("Company is bankrupt.")
+        elif new_wage < Employee.__minimum_wage:
+            raise ValueError("Minimum wage is $" + "%.2f" % Employee.__minimum_wage)
+        else:
+            cls.__minimum_wage = new_wage
 
     def __init__(self, name, age, salary) -> None:
         self.name = name
         self.age = age
-        self.salary = salary
+        self.__salary = salary
 
     def increase_salary(self, percent):
-        self.salary += self.salary * (percent/100)
+        new_salary = self.__salary + self.__salary * (percent/100.0)
+        if new_salary > Employee.__maximum_wage:
+            raise ValueError(
+                f"We cannot pay to our employees ${new_salary} per month, " +
+                "because it will cause us to go bankrupt")
+        else:
+            self.__salary = new_salary
 
     def __str__(self) -> str:
-        return f"{self.name} ({self.age}): monthly salary $" + "%.2f" % self.salary
+        return f"{self.name} ({self.age}): monthly salary $" + "%.2f" % self.__salary
 
     @property
     def salary(self) -> float:
@@ -20,13 +36,20 @@ class Employee:
     def salary(self, new_salary):
         if new_salary < Employee.__minimum_wage:
             raise ValueError("Minimum wage is $" + "%.2f" % Employee.__minimum_wage)
+        elif new_salary > Employee.__maximum_wage:
+            raise ValueError(
+                f"We cannot pay to our employees ${new_salary} per month, " +
+                "because it will cause us to go bankrupt")
         else:
             self.__salary = new_salary
 
 
 print(Employee.__dict__)
 
-e = Employee("John Smith", 38, 1000.00)
+e = Employee("John Smith", 38, 7000.00)
 print("Before:", e)
-Employee.__dict__["increase_salary"](e, 20)
-print("After:", e)
+Employee.__dict__["increase_salary"](e, 10)
+print("After1:", e)
+
+e.increase_salary(100)
+print("After2:", e)
