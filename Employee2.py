@@ -12,7 +12,7 @@ class Employee:
     
     def __repr__(self) -> str:
         return str(
-            'Employee.Employee(' +
+            'Employee2.Employee(' +
             '\"' + str(self.name) + '\"' + ', ' +
             str(self.age) + ', ' +
             str(self.salary) + ')'
