@@ -1,8 +1,17 @@
+from datetime import date
+
+
 class Employee:
     def __init__(self, name, age, salary) -> None:
         self.name = name
         self.age = age
         self.__salary = salary
+
+    @classmethod
+    def new_employee(cls, name, dob):
+        now = date.today()
+        age = now.year - dob.year - ((now.month, now.day) < (dob.month, dob.day))
+        return cls(name, age, cls.__minimum_wage)
 
     __minimum_wage = 1000
     __maximum_wage = 10000
@@ -58,13 +67,12 @@ class Employee:
         else:
             self.__salary = new_salary
 
+# print(Employee.__dict__)
 
-print(Employee.__dict__)
-
-e = Employee("John Smith", 38, 7000.00)
-print("Before:", e)
-Employee.__dict__["increase_salary"](e, 10)
-print("After1:", e)
+e1 = Employee("John Smith", 38, 7000.00)
+print("Before:", e1)
+Employee.__dict__["increase_salary"](e1, 10)
+print("After1:", e1)
 
 # e.increase_salary(100)
 # print("After2:", e)
@@ -73,4 +81,10 @@ print(f"Minimum wage is ${Employee.minimum_wage()}")
 print(f"Maximum wage is ${Employee.maximum_wage()}")
 
 # Employee.change_the_minimum_wage(200)
-Employee.change_the_minimum_wage(30000)
+# Employee.change_the_minimum_wage(30000)
+
+e2 = Employee.new_employee("Cindy Crawford", date(1966, 2, 20))
+print()
+print(e2.name)
+print(e2.age)
+print(e2.salary)
