@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(slots=True)
 class Project:
     name: str
     payment: int
@@ -10,7 +10,7 @@ class Project:
     def notify_client(self):
         print(f"Notify the client about the progress of the {self.name}...")
 
-@dataclass
+@dataclass(slots=True)
 class Employee:
     name: str
     age: int
