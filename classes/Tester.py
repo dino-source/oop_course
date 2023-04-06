@@ -1,6 +1,6 @@
-import Employee2
+import classes.Employee2 as Employee
 
-class Tester(Employee2.Employee):
+class Tester(Employee.Employee):
     def run_tests(self):
         print(f"===> Testing is started by {self.name}...")
         print("===> Testing is done")

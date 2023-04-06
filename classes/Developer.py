@@ -1,7 +1,7 @@
-import Employee2
+import classes.Employee2 as Employee
 
 
-class Developer(Employee2.Employee):
+class Developer(Employee.Employee):
     __slots__ = ("framework", )
 
     def __init__(self, name, age, salary, framework='') -> None:
