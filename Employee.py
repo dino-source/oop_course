@@ -4,6 +4,7 @@ class Employee:
         self.age = age
         self.position = position
         self.__salary = salary
+        self.__annual_salary = None
 
     def __str__(self) -> str:
         return f"{self.name} ({self.age}): {self.position} [$" + "%.2f" % self.__salary + "]"
@@ -30,11 +31,14 @@ class Employee:
         if new_salary < minimum_wage:
             raise ValueError("Minimum wage is $1000")
         else:
+            self.__annual_salary = None
             self.__salary = new_salary
 
     @property
     def annual_salary(self):
-        return self.salary * 12
+        if self.__annual_salary is None:
+            self.__annual_salary = self.salary * 12
+        return self.__annual_salary
 
     def print(self):
         print(f"{self.name} ({self.age}): {self.position} [$", "%.2f" % self.__salary, "]", sep='')
