@@ -4,11 +4,11 @@ import classes.Employee2 as Employee
 class Developer(Employee.Employee):
     __slots__ = ("framework", )
 
-    def __init__(self, name, age, salary, framework='') -> None:
+    def __init__(self, name: str, age: int, salary: float, framework: str = '') -> None:
         super().__init__(name, age, salary)
         self.framework = framework
 
-    def increase_salary(self, percent, bonus=0):
+    def increase_salary(self, percent: float, bonus: float = 0):
         super().increase_salary(percent)
         self.salary += bonus
 
