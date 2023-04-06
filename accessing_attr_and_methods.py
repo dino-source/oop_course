@@ -18,9 +18,13 @@ class Employee:
     @classmethod
     def change_the_minimum_wage(cls, new_wage):
         if new_wage > Employee.__maximum_wage:
-            raise ValueError("Company is bankrupt.")
+            raise ValueError(
+                f"It is impossible to apply ${new_wage} as maximum wage. " +
+                "It can't be more than $" + "%.2f" % Employee.__maximum_wage)
         elif new_wage < Employee.__minimum_wage:
-            raise ValueError("Minimum wage is $" + "%.2f" % Employee.__minimum_wage)
+            raise ValueError(
+                f"It is impossible to apply ${new_wage} as minimum wage. " +
+                "It can't be less than $" + "%.2f" % Employee.__minimum_wage)
         else:
             cls.__minimum_wage = new_wage
 
@@ -43,7 +47,10 @@ class Employee:
     @salary.setter
     def salary(self, new_salary):
         if new_salary < Employee.__minimum_wage:
-            raise ValueError("Minimum wage is $" + "%.2f" % Employee.__minimum_wage)
+            raise ValueError(
+                f"It is impossible to apply ${new_salary} salary. " +
+                "It can't be less than minimum wage, " +
+                "which is $" + "%.2f" % Employee.__minimum_wage)
         elif new_salary > Employee.__maximum_wage:
             raise ValueError(
                 f"We cannot pay to our employees ${new_salary} per month, " +
@@ -64,3 +71,6 @@ print("After1:", e)
 
 print(f"Minimum wage is ${Employee.minimum_wage()}")
 print(f"Maximum wage is ${Employee.maximum_wage()}")
+
+# Employee.change_the_minimum_wage(200)
+Employee.change_the_minimum_wage(30000)
