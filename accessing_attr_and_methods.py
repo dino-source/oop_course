@@ -1,6 +1,19 @@
 class Employee:
+    def __init__(self, name, age, salary) -> None:
+        self.name = name
+        self.age = age
+        self.__salary = salary
+
     __minimum_wage = 1000
     __maximum_wage = 10000
+
+    @classmethod
+    def minimum_wage(cls) -> int:
+        return cls.__minimum_wage
+    
+    @classmethod
+    def maximum_wage(cls) -> int:
+        return cls.__maximum_wage
 
     @classmethod
     def change_the_minimum_wage(cls, new_wage):
@@ -10,11 +23,6 @@ class Employee:
             raise ValueError("Minimum wage is $" + "%.2f" % Employee.__minimum_wage)
         else:
             cls.__minimum_wage = new_wage
-
-    def __init__(self, name, age, salary) -> None:
-        self.name = name
-        self.age = age
-        self.__salary = salary
 
     def increase_salary(self, percent):
         new_salary = self.__salary + self.__salary * (percent/100.0)
@@ -51,5 +59,8 @@ print("Before:", e)
 Employee.__dict__["increase_salary"](e, 10)
 print("After1:", e)
 
-e.increase_salary(100)
-print("After2:", e)
+# e.increase_salary(100)
+# print("After2:", e)
+
+print(f"Minimum wage is ${Employee.minimum_wage()}")
+print(f"Maximum wage is ${Employee.maximum_wage()}")
