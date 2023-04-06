@@ -7,6 +7,9 @@ class Project:
     payment: int
     client: str
 
+    def notify_client(self):
+        print(f"Notify the client about the progress of the {self.name}...")
+
 @dataclass
 class Employee:
     name: str
@@ -17,3 +20,5 @@ class Employee:
 p = Project("Django app", 20000, "Globomantics")
 e = Employee("Ji-Soo", 38, 1000, p)
 print(e.project)
+
+p.notify_client()
