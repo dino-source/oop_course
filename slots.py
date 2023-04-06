@@ -1,4 +1,6 @@
 class SlotInspectorMixin:
+    __slots__ = ()
+
     def has_slots(self):
         return hasattr(self, "__slots__")
     
@@ -21,3 +23,4 @@ class Developer(SlotInspectorMixin, Employee):
 employee1 = Developer("Juliana Craine", 38, 1000, "Flask")
 print(employee1.__slots__)
 print(f"Check if Developer class has slots:", employee1.has_slots())
+print(employee1.__dict__)
