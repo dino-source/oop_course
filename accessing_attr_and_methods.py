@@ -1,4 +1,5 @@
 from datetime import date
+from classes.MathUtils import MathUtils
 
 
 class Employee:
@@ -88,3 +89,6 @@ print()
 print(e2.name)
 print(e2.age)
 print(e2.salary)
+
+result = MathUtils.divide(3, 2)
+print(f"MathUtils.divide(3, 2) = {result}")
