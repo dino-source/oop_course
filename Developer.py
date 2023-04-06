@@ -2,7 +2,9 @@ import Employee2
 
 
 class Developer(Employee2.Employee):
-    def __init__(self, name, age, salary, framework) -> None:
+    __slots__ = ("framework", )
+
+    def __init__(self, name, age, salary, framework='') -> None:
         super().__init__(name, age, salary)
         self.framework = framework
 

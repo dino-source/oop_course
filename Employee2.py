@@ -1,4 +1,6 @@
 class Employee:
+    __slots__ = ("name", "age", "salary")
+
     def __init__(self, name, age, salary) -> None:
         self.name = name
         self.age = age
