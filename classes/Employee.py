@@ -2,29 +2,42 @@ class Employee:
     def __init__(self, name, age, position, salary) -> None:
         self.name = name
         self.age = age
-        self.position = position
+        self.pos = position
         self.__salary = salary
         self.__annual_salary = None
 
+        # Message for pretty printing is broken up to two parts
+        # to make PEP8 happy (otherwise line will be too long)
+        self.msg_p1 = f"{self.name} ({self.age}): {self.pos}"
+        self.msg_p2 = " [$" + "%.2f" % self.__salary + "]"
+
     def __str__(self) -> str:
-        return f"{self.name} ({self.age}): {self.position} [$" + "%.2f" % self.__salary + "]"
-    
+        return self.msg_p1 + self.msg_p2
+
     def __repr__(self) -> str:
         return str(
-            'Employee.Employee(' +
-            '\"' + str(self.name) + '\"' + ', ' +
-            str(self.age) + ', ' +
-            '\"' + str(self.position) + '\"' + ', ' +
-            str(self.__salary) + ')'
+            "Employee.Employee("
+            + '"'
+            + str(self.name)
+            + '"'
+            + ", "
+            + str(self.age)
+            + ", "
+            + '"'
+            + str(self.pos)
+            + '"'
+            + ", "
+            + str(self.__salary)
+            + ")"
         )
-    
+
     def __add__(self, other):
         return [self, other]
-    
+
     @property
     def salary(self):
         return self.__salary
-    
+
     @salary.setter
     def salary(self, new_salary):
         minimum_wage = 1000
@@ -41,7 +54,7 @@ class Employee:
         return self.__annual_salary
 
     def print(self):
-        print(f"{self.name} ({self.age}): {self.position} [$", "%.2f" % self.__salary, "]", sep='')
+        print(self.msg_p1 + self.msg_p2, sep="")
 
     def increase_salary(self, percent):
-        self.__salary += self.__salary * (percent/100)
+        self.__salary += self.__salary * (percent / 100)

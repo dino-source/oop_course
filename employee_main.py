@@ -1,5 +1,6 @@
 import classes.Employee as Employee
 
+
 def main():
     e1 = Employee.Employee("John Smith", 38, "developer", 1200.0)
     e1.print()
@@ -18,10 +19,11 @@ def main():
 
     # e1.salary = 990
     e2.salary = 1400
-    print(e2.name, " has $", e2.salary, " monthly salary.", sep='')
+    print(e2.name, " has $", e2.salary, " monthly salary.", sep="")
 
     # print(e2.__salary)
 
-    print(e2.name, " has $", e2.annual_salary, " annual salary.", sep='')
+    print(e2.name, " has $", e2.annual_salary, " annual salary.", sep="")
+
 
 main()

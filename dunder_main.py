@@ -1,6 +1,7 @@
-import classes.Employee2 as Employee
 import classes.Developer as Developer
+import classes.Employee2 as Employee
 import classes.Tester as Tester
+
 
 def main():
     employee1 = Tester.Tester("Victor Tverskoy", 44, 6000)
@@ -14,5 +15,6 @@ def main():
     print(issubclass(Developer.Developer, Employee.Employee))
     print(issubclass(Employee.Employee, object))
     print(issubclass(Developer.Developer, object))
+
 
 main()
